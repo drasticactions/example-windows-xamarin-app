@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Linq;
 
 namespace windows_central_client.Models.News
 {
@@ -45,6 +46,12 @@ namespace windows_central_client.Models.News
         [JsonProperty("badge")]
         public string Badge { get; set; }
 
+        public string BadgeUpper { get
+            {
+                return Badge.ToUpper();
+            }
+        }
+
         [JsonProperty("categories")]
         public string[] Categories { get; set; }
 
@@ -62,6 +69,14 @@ namespace windows_central_client.Models.News
 
         [JsonProperty("images")]
         public string[] Images { get; set; }
+
+        public string FirstImage
+        {
+            get
+            {
+                return Images.FirstOrDefault();
+            }
+        }
 
         [JsonProperty("tinted_image")]
         public string TintedImage { get; set; }

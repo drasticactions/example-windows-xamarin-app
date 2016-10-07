@@ -5,9 +5,49 @@
     xmlns:local="using:example_windows_app"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:example_windows_app.ViewModels"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:model="using:windows_central_client.Models.News"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModels:MainPageViewModel />
+    </Page.DataContext>
+    <Page.Resources>
+        <DataTemplate x:Key="FeaturedTemplate">
+            <Grid>
+                <Image Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding FirstImage}"/>
+                <Border VerticalAlignment="Bottom">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Offset="0" Color="Transparent" />
+                            <GradientStop Offset="1" Color="#33000000" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Margin="10,20,10,10" VerticalAlignment="Bottom">
+                        <TextBlock FontSize="12" FontWeight="Bold" Text="{Binding BadgeUpper}" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{StaticResource Brush-WindowsCentral-Badge}" />
+                        <TextBlock Text="{Binding Title}" Foreground="{StaticResource Brush-White}" Style="{ThemeResource TitleTextBlockStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ArticleTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill" Source="{Binding FirstImage}"/>
+                <StackPanel Grid.Row="1" Margin="10,20,10,10" VerticalAlignment="Bottom">
+                    <TextBlock FontSize="12" FontWeight="Bold" Text="{Binding BadgeUpper}" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{StaticResource Brush-WindowsCentral-Badge}" />
+                    <TextBlock Text="{Binding Title}" Foreground="{StaticResource Brush-Grey-01}"  TextWrapping="Wrap" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <controls:AdaptiveGridView ItemHeight="200" DesiredWidth="300" ItemsSource="{x:Bind ViewModel.NewsSource}" ItemTemplate="{StaticResource ArticleTemplate}">
+        </controls:AdaptiveGridView>
     </Grid>
 </Page>

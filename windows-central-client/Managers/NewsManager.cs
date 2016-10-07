@@ -11,11 +11,11 @@ namespace windows_central_client.Managers
 {
     public class NewsManager
     {
-        public async Task<NewsResult> GetNewsResult()
+        public async static Task<NewsResult> GetNewsResult(int page = 0, int limit = 20)
         {
             using (var client = new HttpClient())
             {
-                var result = await client.GetAsync("http://www.windowscentral.com/mobile_app/feed/json?limit=15&format=full&ticks=636113816691630509&page=0");
+                var result = await client.GetAsync($"http://www.windowscentral.com/mobile_app/feed/json?limit={limit}&format=full&ticks={new DateTime().Ticks}&page={page}");
                 var jsonString = await result.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<NewsResult>(jsonString);
             }
