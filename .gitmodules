@@ -1,0 +1,3 @@
+[submodule "uwp-toolkit"]
+	path = uwp-toolkit
+	url = git@github.com:drasticactions/UWPCommunityToolkit.git

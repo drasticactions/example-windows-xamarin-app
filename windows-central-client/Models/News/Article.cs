@@ -50,7 +50,7 @@ namespace windows_central_client.Models.News
         {
             get
             {
-                return Badge.ToUpper();
+                return Badge?.ToUpper();
             }
         }
 
