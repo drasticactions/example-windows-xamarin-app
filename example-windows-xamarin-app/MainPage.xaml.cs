@@ -1,4 +1,5 @@
-﻿using example_windows_app.ViewModels;
+﻿using Bezysoftware.Navigation.Lookup;
+using example_windows_app.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace example_windows_app
 {
+    [AssociatedViewModel(typeof(MainPageViewModel))]
     public sealed partial class MainPage : Page
     {
         public MainPage()
@@ -24,10 +26,5 @@ namespace example_windows_app
         }
 
         public MainPageViewModel ViewModel => this.DataContext as MainPageViewModel;
-
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            await ViewModel.GetFeaturedArticles();
-        }
     }
 }

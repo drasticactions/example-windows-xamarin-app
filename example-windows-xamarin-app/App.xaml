@@ -6,7 +6,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     RequestedTheme="Light">
     <Application.Resources>
-
+        <vm:ViewModelLocator x:Key="Locator" xmlns:vm="using:example_windows_app.ViewModels" />
         <!-- Colors -->
         <Color x:Key="Grey-01">#FF333333</Color>
         <Color x:Key="Grey-02">#FF444444</Color>

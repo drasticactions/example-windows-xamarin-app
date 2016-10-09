@@ -10,15 +10,13 @@
     xmlns:model="using:windows_central_client.Models.News"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    DataContext="{Binding Main, Source={StaticResource Locator}}"
     mc:Ignorable="d">
-    <Page.DataContext>
-        <viewModels:MainPageViewModel />
-    </Page.DataContext>
     <Page.Resources>
         <DataTemplate x:Key="FeaturedTemplate">
             <Grid>
                 <controls:ImageEx Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding FirstImage}"/>
-                <Border VerticalAlignment="Bottom">
+                <Border VerticalAlignment="Stretch">
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Offset="0" Color="Transparent" />
@@ -27,7 +25,7 @@
                     </Border.Background>
                     <StackPanel Margin="10,20,10,10" VerticalAlignment="Bottom">
                         <TextBlock FontSize="12" FontWeight="Bold" Text="{Binding BadgeUpper}" Style="{ThemeResource SubtitleTextBlockStyle}" Foreground="{StaticResource Brush-WindowsCentral-Badge}" />
-                        <TextBlock Text="{Binding Title}" Foreground="{StaticResource Brush-White}" Style="{ThemeResource TitleTextBlockStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold" Foreground="{StaticResource Brush-White}" Style="{ThemeResource TitleTextBlockStyle}" TextWrapping="Wrap" />
                     </StackPanel>
                 </Border>
             </Grid>
@@ -35,7 +33,7 @@
         <DataTemplate x:Key="ArticleTemplate">
             <Grid>
                 <controls:ImageEx Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center" Source="{Binding FirstImage}"/>
-                <Border VerticalAlignment="Bottom">
+                <Border VerticalAlignment="Stretch">
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Offset="0" Color="Transparent" />
@@ -60,7 +58,7 @@
               MinHeight="300"
               Background="{StaticResource Brush-Blue-01}">
                     <controls:RotatorTile x:Name="FeaturedTile"
-                                  ItemsSource="{x:Bind ViewModel.FeaturedArticles, Mode=OneWay}"
+                                  ItemsSource="{Binding FeaturedArticles}"
                                   Direction="Left" 
                                   ItemTemplate="{StaticResource FeaturedTemplate}" 
                                   Grid.Column="0" 
