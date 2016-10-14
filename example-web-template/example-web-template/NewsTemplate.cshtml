@@ -1,19 +1,29 @@
 ﻿@model NewsTemplateModel
 @{
 	var baseDirectory = "";
+	var theme = "";
 	switch(Model.Platform) {
 		case AppPlatform.Windows:
-		baseDirectory = "ms-appx-web:///Assets/";
+		baseDirectory = "ms-appx-web:///Assets";
+		break;
+	}
+
+	switch(Model.Theme) {
+		case Theme.Dark:
+		theme = "mona.dark.css";
+		break;
+		case Theme.Light:
+		theme = "mona.light.css";
 		break;
 	}
 }
 <!DOCTYPE html>
 <html>
 	<head>
-		<script type='text/javascript' src='ms-appx-web:///Scripts/jquery-2.2.3.min.js'></script>
-		<script type='text/javascript' src='ms-appx-web:///Scripts/mona.article.js'></script>
-		<link type='text/css' rel='stylesheet' href='ms-appx-web:///Assets/fonts.segoe.css' />
-		<link type='text/css' rel='stylesheet' href='ms-appx-web:///Assets/mona.light.css' />
+		<script type='text/javascript' src='@{WriteLiteral(baseDirectory);}/jquery-2.2.3.min.js'></script>
+		<script type='text/javascript' src='@{WriteLiteral(baseDirectory);}/mona.article.js'></script>
+		<link type='text/css' rel='stylesheet' href='@{WriteLiteral(baseDirectory);}/fonts.segoe.css' />
+		<link type='text/css' rel='stylesheet' href='@{WriteLiteral(baseDirectory);}/@{WriteLiteral(theme);}' />
 	</head>
 	<body class='fs14'>
 		<div id='article_container_w10'>

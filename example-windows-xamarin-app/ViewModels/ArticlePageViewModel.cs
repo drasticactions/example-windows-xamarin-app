@@ -43,7 +43,8 @@
             var newsTemplateModel = new NewsTemplateModel()
             {
                 Article = article,
-                Platform = AppPlatform.Windows
+                Platform = AppPlatform.Windows,
+                Theme = Theme.Dark
             };
             var newsTemplate = new NewsTemplate() { Model = newsTemplateModel };
             this.Html = newsTemplate.GenerateString();

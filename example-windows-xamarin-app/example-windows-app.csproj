@@ -93,8 +93,8 @@
     <Content Include="Assets\fonts.segoe.css" />
     <Content Include="Assets\Fonts\BlackTie-Light.otf" />
     <Content Include="Assets\Fonts\BlackTie-Solid.otf" />
-    <Content Include="Scripts\jquery-2.2.3.min.js" />
-    <Content Include="Scripts\mona.article.js" />
+    <Content Include="Assets\Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Assets\Scripts\mona.article.js" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

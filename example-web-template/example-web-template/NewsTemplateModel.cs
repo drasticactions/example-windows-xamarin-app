@@ -8,6 +8,8 @@ namespace example_web_template
 		public Article Article { get; set; }
 
         public AppPlatform Platform { get; set; }
+
+		public Theme Theme { get; set; }
 	}
 
     public enum AppPlatform
@@ -16,4 +18,10 @@ namespace example_web_template
         Android,
         Windows
     }
+
+	public enum Theme
+	{
+		Light,
+		Dark
+	}
 }

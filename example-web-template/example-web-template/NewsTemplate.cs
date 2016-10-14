@@ -36,9 +36,19 @@ public override void Execute()
 #line 2 "NewsTemplate.cshtml"
   
 	var baseDirectory = "";
+	var theme = "";
 	switch(Model.Platform) {
 		case AppPlatform.Windows:
-		baseDirectory = "ms-appx-web:///Assets/";
+		baseDirectory = "ms-appx-web:///Assets";
+		break;
+	}
+
+	switch(Model.Theme) {
+		case Theme.Dark:
+		theme = "mona.dark.css";
+		break;
+		case Theme.Light:
+		theme = "mona.light.css";
 		break;
 	}
 
@@ -49,30 +59,74 @@ WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n\t<head>\r\n\t\t<script");
 
 WriteLiteral(" type=\'text/javascript\'");
 
-WriteLiteral(" src=\'ms-appx-web:///Scripts/jquery-2.2.3.min.js\'");
+WriteAttribute ("src", " src=\'", "\'"
+, Tuple.Create<string,object,bool> ("", new Action<System.IO.TextWriter> (__razor_attribute_value_writer => {
 
+#line 23 "NewsTemplate.cshtml"
+                                              WriteLiteral(baseDirectory);
+
+#line default
+#line hidden
+}), false)
+, Tuple.Create<string,object,bool> ("", "/jquery-2.2.3.min.js", true)
+);
 WriteLiteral("></script>\r\n\t\t<script");
 
 WriteLiteral(" type=\'text/javascript\'");
 
-WriteLiteral(" src=\'ms-appx-web:///Scripts/mona.article.js\'");
+WriteAttribute ("src", " src=\'", "\'"
+, Tuple.Create<string,object,bool> ("", new Action<System.IO.TextWriter> (__razor_attribute_value_writer => {
 
+#line 24 "NewsTemplate.cshtml"
+                                              WriteLiteral(baseDirectory);
+
+#line default
+#line hidden
+}), false)
+, Tuple.Create<string,object,bool> ("", "/mona.article.js", true)
+);
 WriteLiteral("></script>\r\n\t\t<link");
 
 WriteLiteral(" type=\'text/css\'");
 
 WriteLiteral(" rel=\'stylesheet\'");
 
-WriteLiteral(" href=\'ms-appx-web:///Assets/fonts.segoe.css\'");
+WriteAttribute ("href", " href=\'", "\'"
+, Tuple.Create<string,object,bool> ("", new Action<System.IO.TextWriter> (__razor_attribute_value_writer => {
 
+#line 25 "NewsTemplate.cshtml"
+                                                       WriteLiteral(baseDirectory);
+
+#line default
+#line hidden
+}), false)
+, Tuple.Create<string,object,bool> ("", "/fonts.segoe.css", true)
+);
 WriteLiteral(" />\r\n\t\t<link");
 
 WriteLiteral(" type=\'text/css\'");
 
 WriteLiteral(" rel=\'stylesheet\'");
 
-WriteLiteral(" href=\'ms-appx-web:///Assets/mona.light.css\'");
+WriteAttribute ("href", " href=\'", "\'"
+, Tuple.Create<string,object,bool> ("", new Action<System.IO.TextWriter> (__razor_attribute_value_writer => {
 
+#line 26 "NewsTemplate.cshtml"
+                                                       WriteLiteral(baseDirectory);
+
+#line default
+#line hidden
+}), false)
+, Tuple.Create<string,object,bool> ("", "/", true)
+, Tuple.Create<string,object,bool> ("", new Action<System.IO.TextWriter> (__razor_attribute_value_writer => {
+
+#line 26 "NewsTemplate.cshtml"
+                                                                                       WriteLiteral(theme);
+
+#line default
+#line hidden
+}), false)
+);
 WriteLiteral(" />\r\n\t</head>\r\n\t<body");
 
 WriteLiteral(" class=\'fs14\'");
@@ -88,7 +142,7 @@ WriteLiteral(" class=\'article-title\'");
 WriteLiteral(">");
 
 
-#line 20 "NewsTemplate.cshtml"
+#line 30 "NewsTemplate.cshtml"
                                          WriteLiteral(Model.Article.Title);
 
 #line default
@@ -104,7 +158,7 @@ WriteLiteral(" class=\'author-name\'");
 WriteLiteral(">");
 
 
-#line 21 "NewsTemplate.cshtml"
+#line 31 "NewsTemplate.cshtml"
                                                                          WriteLiteral(Model.Article.Author);
 
 #line default
@@ -112,13 +166,13 @@ WriteLiteral(">");
 WriteLiteral("</span></div>\r\n");
 
 
-#line 22 "NewsTemplate.cshtml"
+#line 32 "NewsTemplate.cshtml"
 			
 
 #line default
 #line hidden
 
-#line 22 "NewsTemplate.cshtml"
+#line 32 "NewsTemplate.cshtml"
               
 			WriteLiteral(Model.Article.Content);
 			
