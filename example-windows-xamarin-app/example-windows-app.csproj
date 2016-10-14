@@ -89,11 +89,20 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Content Include="Assets\fonts.colfax.css" />
+    <Content Include="Assets\fonts.segoe.css" />
+    <Content Include="Assets\Fonts\BlackTie-Light.otf" />
+    <Content Include="Assets\Fonts\BlackTie-Solid.otf" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\mona.article.js" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArticlePage.xaml.cs">
+      <DependentUpon>ArticlePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -103,6 +112,8 @@
     <Compile Include="Tools\Common\NotifierBase.cs" />
     <Compile Include="Tools\News\NewsSource.cs" />
     <Compile Include="Tools\ThisAssemblyResolver.cs" />
+    <Compile Include="Tools\WebViewHelper.cs" />
+    <Compile Include="ViewModels\ArticlePageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>
@@ -113,6 +124,8 @@
     <None Include="example-windows-xamarin-app_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\mona.dark.css" />
+    <Content Include="Assets\mona.light.css" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -127,12 +140,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ArticlePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\example-web-template\example-web-template\example-web-template.csproj">
+      <Project>{b159244c-199d-49b4-93f8-fac12de5d52a}</Project>
+      <Name>example-web-template</Name>
+    </ProjectReference>
     <ProjectReference Include="..\uwp-toolkit\Microsoft.Toolkit.Uwp.UI.Animations\Microsoft.Toolkit.Uwp.UI.Animations.csproj">
       <Project>{b24a296c-b3eb-4e06-a64e-74ac2d1acc91}</Project>
       <Name>Microsoft.Toolkit.Uwp.UI.Animations</Name>

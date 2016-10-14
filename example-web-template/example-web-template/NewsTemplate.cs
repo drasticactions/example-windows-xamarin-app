@@ -32,23 +32,100 @@ public NewsTemplateModel Model { get; set; }
 
 public override void Execute()
 {
-WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n\t<head>\r\n\r\n\t</head>\r\n\t<body>\r\n");
+
+#line 2 "NewsTemplate.cshtml"
+  
+	var baseDirectory = "";
+	switch(Model.Platform) {
+		case AppPlatform.Windows:
+		baseDirectory = "ms-appx-web:///Assets/";
+		break;
+	}
 
 
-#line 8 "NewsTemplate.cshtml"
-		
+#line default
+#line hidden
+WriteLiteral("\r\n<!DOCTYPE html>\r\n<html>\r\n\t<head>\r\n\t\t<script");
+
+WriteLiteral(" type=\'text/javascript\'");
+
+WriteLiteral(" src=\'ms-appx-web:///Scripts/jquery-2.2.3.min.js\'");
+
+WriteLiteral("></script>\r\n\t\t<script");
+
+WriteLiteral(" type=\'text/javascript\'");
+
+WriteLiteral(" src=\'ms-appx-web:///Scripts/mona.article.js\'");
+
+WriteLiteral("></script>\r\n\t\t<link");
+
+WriteLiteral(" type=\'text/css\'");
+
+WriteLiteral(" rel=\'stylesheet\'");
+
+WriteLiteral(" href=\'ms-appx-web:///Assets/fonts.segoe.css\'");
+
+WriteLiteral(" />\r\n\t\t<link");
+
+WriteLiteral(" type=\'text/css\'");
+
+WriteLiteral(" rel=\'stylesheet\'");
+
+WriteLiteral(" href=\'ms-appx-web:///Assets/mona.light.css\'");
+
+WriteLiteral(" />\r\n\t</head>\r\n\t<body");
+
+WriteLiteral(" class=\'fs14\'");
+
+WriteLiteral(">\r\n\t\t<div");
+
+WriteLiteral(" id=\'article_container_w10\'");
+
+WriteLiteral(">\r\n\t\t\t<div");
+
+WriteLiteral(" class=\'article-title\'");
+
+WriteLiteral(">");
+
+
+#line 20 "NewsTemplate.cshtml"
+                                         WriteLiteral(Model.Article.Title);
+
+#line default
+#line hidden
+WriteLiteral("</div>\r\n\t\t\t<div");
+
+WriteLiteral(" class=\'author-container\'");
+
+WriteLiteral(">By <span");
+
+WriteLiteral(" class=\'author-name\'");
+
+WriteLiteral(">");
+
+
+#line 21 "NewsTemplate.cshtml"
+                                                                         WriteLiteral(Model.Article.Author);
+
+#line default
+#line hidden
+WriteLiteral("</span></div>\r\n");
+
+
+#line 22 "NewsTemplate.cshtml"
+			
 
 #line default
 #line hidden
 
-#line 8 "NewsTemplate.cshtml"
-          
+#line 22 "NewsTemplate.cshtml"
+              
 			WriteLiteral(Model.Article.Content);
-		
+			
 
 #line default
 #line hidden
-WriteLiteral("\r\n\t</body>\r\n</html>");
+WriteLiteral("\r\n\t\t</div>\r\n\t</body>\r\n</html>");
 
 }
 }

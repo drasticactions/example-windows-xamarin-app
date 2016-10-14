@@ -23,7 +23,7 @@ namespace windows_central_client.Models
         public Article[] Articles { get; set; }
 
         [JsonProperty("featured")]
-        public Featured[] Featured { get; set; }
+        public Article[] Featured { get; set; }
     }
 
 }

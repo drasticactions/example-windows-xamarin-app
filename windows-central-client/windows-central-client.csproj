@@ -42,7 +42,6 @@
     <Compile Include="Managers\NewsManager.cs" />
     <Compile Include="Models\NewsResult.cs" />
     <Compile Include="Models\News\Article.cs" />
-    <Compile Include="Models\News\Featured.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

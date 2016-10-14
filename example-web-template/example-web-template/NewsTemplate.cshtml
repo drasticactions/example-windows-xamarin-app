@@ -1,12 +1,27 @@
 ﻿@model NewsTemplateModel
+@{
+	var baseDirectory = "";
+	switch(Model.Platform) {
+		case AppPlatform.Windows:
+		baseDirectory = "ms-appx-web:///Assets/";
+		break;
+	}
+}
 <!DOCTYPE html>
 <html>
 	<head>
-
+		<script type='text/javascript' src='ms-appx-web:///Scripts/jquery-2.2.3.min.js'></script>
+		<script type='text/javascript' src='ms-appx-web:///Scripts/mona.article.js'></script>
+		<link type='text/css' rel='stylesheet' href='ms-appx-web:///Assets/fonts.segoe.css' />
+		<link type='text/css' rel='stylesheet' href='ms-appx-web:///Assets/mona.light.css' />
 	</head>
-	<body>
-		@{
+	<body class='fs14'>
+		<div id='article_container_w10'>
+			<div class='article-title'>@{WriteLiteral(Model.Article.Title);}</div>
+			<div class='author-container'>By <span class='author-name'>@{WriteLiteral(Model.Article.Author);}</span></div>
+			@{
 			WriteLiteral(Model.Article.Content);
-		}
+			}
+		</div>
 	</body>
 </html>

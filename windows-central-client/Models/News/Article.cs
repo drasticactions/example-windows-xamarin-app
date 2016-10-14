@@ -74,7 +74,7 @@ namespace windows_central_client.Models.News
 
         public string FirstImage { get
             {
-                return Images.FirstOrDefault();
+                return Images?.FirstOrDefault();
             }
         }
 

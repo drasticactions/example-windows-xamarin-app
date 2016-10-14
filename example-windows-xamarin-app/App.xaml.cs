@@ -1,27 +1,28 @@
-﻿using Bezysoftware.Navigation;
-using example_windows_app.ViewModels;
-using Microsoft.Practices.ServiceLocation;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Popups;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Bezysoftware.Navigation.StatePersistence;
-
-namespace example_windows_app
+﻿namespace example_windows_app
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.InteropServices.WindowsRuntime;
+    using Bezysoftware.Navigation;
+    using Bezysoftware.Navigation.BackButton;
+    using Bezysoftware.Navigation.StatePersistence;
+    using example_windows_app.ViewModels;
+    using Microsoft.Practices.ServiceLocation;
+    using Windows.ApplicationModel;
+    using Windows.ApplicationModel.Activation;
+    using Windows.Foundation;
+    using Windows.Foundation.Collections;
+    using Windows.UI.Popups;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Controls.Primitives;
+    using Windows.UI.Xaml.Data;
+    using Windows.UI.Xaml.Input;
+    using Windows.UI.Xaml.Media;
+    using Windows.UI.Xaml.Navigation;
+
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
@@ -63,7 +64,7 @@ namespace example_windows_app
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-                //BackButtonManager.RegisterFrame(rootFrame, true, false, false);
+                BackButtonManager.RegisterFrame(rootFrame, true, false, false);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

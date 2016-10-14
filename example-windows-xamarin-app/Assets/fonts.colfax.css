@@ -1,0 +1,8 @@
+﻿@font-face {
+	font-family: 'Colfax-Regular';
+	src: url('http://www.windowscentral.com/sites/all/fonts/Colfax-Regular_gdi.woff') format('woff');
+}
+
+body{
+	font-family: Colfax-Regular, Helvetica, Arial, sans-serif;
+}
